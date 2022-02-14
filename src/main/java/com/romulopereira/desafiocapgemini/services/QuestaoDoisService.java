@@ -12,7 +12,7 @@ public class QuestaoDoisService {
 	public Integer informMissingCharacters(String input) {
 		Integer inputLength = input.length();
 		Integer missingChar = 0;
-		Integer minimalChar = 6;
+		Integer minimalChar = 4;
 		
         boolean hasLower = false, hasUpper = false,
                 hasDigit = false, specialChar = false;
@@ -32,11 +32,15 @@ public class QuestaoDoisService {
                 specialChar = true;
         }
         
-        if (!hasLower) {missingChar =+ 1;} else minimalChar = minimalChar -1;
-        if (!hasUpper) {missingChar =+ 1;} else minimalChar = minimalChar -1;
-        if (!hasDigit) {missingChar =+ 1;} else minimalChar = minimalChar -1;
-        if (!specialChar) {missingChar =+ 1;} else minimalChar = minimalChar -1;
-        if (inputLength < 6) return minimalChar =+ (6 - inputLength);
+        if (!hasLower) {missingChar += 1;} else minimalChar -= 1;
+        if (!hasUpper) {missingChar += 1;} else minimalChar -= 1;
+        if (!hasDigit) {missingChar += 1;} else minimalChar -= 1;
+        if (!specialChar) {missingChar += 1;} else minimalChar -= 1;
+        if (inputLength < 6) 
+        	if ((6 - inputLength) < minimalChar)
+        		return minimalChar;
+        	else
+        		return (6 - inputLength);
         return missingChar;
 	}
 }
