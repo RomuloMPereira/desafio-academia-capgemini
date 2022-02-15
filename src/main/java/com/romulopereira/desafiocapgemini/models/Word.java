@@ -2,31 +2,31 @@ package com.romulopereira.desafiocapgemini.models;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class Word implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String password;
-
-	public User() {}
+	private String input;
 	
-	public User(String password) {
+	public Word() {}
+
+	public Word(String input) {
 		super();
-		this.password = password;
+		this.input = input;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getInput() {
+		return input;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setInput(String input) {
+		this.input = input;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((input == null) ? 0 : input.hashCode());
 		return result;
 	}
 
@@ -38,11 +38,11 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
-		if (password == null) {
-			if (other.password != null)
+		Word other = (Word) obj;
+		if (input == null) {
+			if (other.input != null)
 				return false;
-		} else if (!password.equals(other.password))
+		} else if (!input.equals(other.input))
 			return false;
 		return true;
 	}

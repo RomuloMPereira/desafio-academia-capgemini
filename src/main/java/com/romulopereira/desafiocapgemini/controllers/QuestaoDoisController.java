@@ -19,7 +19,7 @@ public class QuestaoDoisController {
 	@PostMapping
 	public ResponseEntity<Integer> informMissingCharacters(@RequestBody User user){
 		
-		Integer missingChar = service.informMissingCharacters(user.password);
+		Integer missingChar = service.informMissingCharacters(user.getPassword());
 		
 		return ResponseEntity.ok().body(missingChar);
 	}
